@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+    .content {
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    #output {
+        margin-left: 21%;
+        width: 320px;
+        height: 320px;
+        margin-top: 5rem;
+    }
+    .left-block {
+        margin-left: 21%;
+    }
+}
