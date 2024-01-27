@@ -3,98 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png+xml" href="./2.png" />
+	<link rel="icon" type="image/png+xml" href="/images/logo.png" />
+    <link rel="stylesheet" href="/style.css">
     <title>Minecraft Book Cover</title>
-    <style>
-        body {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        label, button, input {
-            border-radius: 10px;
-            margin: 10px;
-            padding: 15px;
-            border: 2px solid #3498db;
-            background-color: #2c3e50;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            width: 300px;
-            box-sizing: border-box;
-        }
-
-        input, button {
-            display: block;
-            margin-bottom: 15px;
-            width: 100%;
-            font-size: 16px;
-            padding: 10px;
-        }
-
-        button {
-            cursor: pointer;
-            color: #fff;
-            background-color: #e74c3c;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #c0392b;
-        }
-
-        #minecraftNickname {
-            color: #ffffff; /* Белый цвет текста в поле ввода */
-        }
-
-        #output {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Courier New', monospace;
-            white-space: pre-wrap;
-            text-align: center;
-            overflow: hidden;
-            font-size: 18px;
-            width: 300px;
-            height: 300px;
-            line-height: 1.5;
-            margin: 10px;
-            padding: 15px;
-            border: 2px solid #3498db;
-            background-color: #2c3e50;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .copy-button {
-            display: inline-block;
-            padding: 10px;
-            background-color: #27ae60;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .copy-button:hover {
-            background-color: #218c53;
-        }
-    </style>
 </head>
 <body>
-    <label for="minecraftNickname">Введите ник в Minecraft:</label>
-    <input type="text" id="minecraftNickname" placeholder="Введите ник">
-    <button onclick="generateBookCover()">Создать обложку книги</button>
-    <button class="copy-button" onclick="copyToClipboard()">Скопировать</button>
-    <div id="output"></div>
+    <div class="content">
+        <div class="left-block">
+            <label class="text-label" for="minecraftNickname">Введите ник в Minecraft:</label>
+            <input type="text" id="minecraftNickname" placeholder="Введите ник">
+            <button onclick="generateBookCover()"><img src="/images/icons/create-passport.svg" alt="">Создать фото на паспорт</button>
+            <button class="copy-button" onclick="copyToClipboard()"><img src="/images/icons/clipboard.svg" alt="">Скопировать</button>
+        </div>
+        <div id="output"></div>
+    </div>
 
     <script>
                function generateBookCover() {
