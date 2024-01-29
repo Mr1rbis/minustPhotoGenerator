@@ -3,101 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png+xml" href="/images/logo.png" />
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/adapt.css">
+	<link rel="icon" type="image/png+xml" href="./assets/images/logo.png" />
+    <link rel="stylesheet" href="./assets/css/adapt.css">
+    <link id="styleLink" rel="stylesheet" href="./assets/css/auto/zbt.css">
+
     <title>Фото на паспорт | МинЮст СП</title>
 </head>
-<body>
+<body class="transform-slide">
+        <select  id="styleSelector" onchange="changeStyle()">
+        <!-- <option value="zbt">Стандартный тёмный</option>
+        <option value="zbt_white">Стандартный светлый</option> -->
+        <!-- <option value="furrc">Дизайн Furrc</option> -->
+        </select>
     <div class="content">
+
         <div class="left-block">
             <label class="text-label" for="minecraftNickname">Введите ник в Minecraft:</label>
             <input type="text" id="minecraftNickname" placeholder="Введите ник">
-            <button onclick="generateBookCover()"><img src="/images/icons/create-passport.svg" alt="">Создать фото на паспорт</button>
-            <button class="copy-button" onclick="copyToClipboard()"><img src="/images/icons/clipboard.svg" alt="">Скопировать</button>
+            <button onclick="generateBookCover()"><img src="./assets/images/icons/create-passport.svg" alt="">Создать фото на паспорт</button>
+            <button class="copy-button" onclick="copyToClipboard()"><img src="./assets/images/icons/clipboard.svg" alt="">Скопировать</button>
         </div>
         <div id="output"></div>
     </div>
     <footer>
-        <p id="designText">design by zbt + scripts by MrIrbis</p>
+        <p id="designText">design by furrc + scripts by MrIrbis</p>
     </footer>
-
-    <script>
-        function generateBookCover() {
-            var nickname = document.getElementById('minecraftNickname').value;
-
-            // Проверка наличия ника
-            if (!nickname) {
-                alert('Пожалуйста, введите ник в Minecraft.');
-                return;
-            }
-
-            var imageUrl = `https://minotar.net/helm/${nickname}/8.png`;
-
-            // Создание изображения
-            var img = new Image();
-            img.crossOrigin = 'Anonymous'; // Разрешение загрузки изображения с другого домена
-            img.src = imageUrl;
-
-            // Обработка загрузки изображения
-            img.onload = function() {
-                var canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                var ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, img.width, img.height);
-
-                // Получение данных пикселей изображения
-                var imageData = ctx.getImageData(0, 0, img.width, img.height).data;
-
-                // Преобразование пикселей в разнообразные квадратные смайлики с переносом после каждого 8-го символа
-                var outputText = '';
-                for (var i = 0; i < imageData.length; i += 4) {
-                    // Преобразование цвета в разнообразный квадратный символ
-                    var symbol = getSymbolFromColor(imageData[i]);
-                    outputText += symbol;
-
-                    // Добавление переноса строки после каждого 8-го символа
-                    if ((i / 4 + 1) % 8 === 0) {
-                        outputText += '\n';
-                    }
-                }
-
-                // Отображение символов на странице
-                document.getElementById('output').innerText = outputText;
-            };
-        }
-
-        function getSymbolFromColor(color) {
-            // Включаем все похожие на █ символы
-            var symbols = ['█', '▓', '▒', '░'];
-
-            // Преобразование цвета в индекс символа
-            var index = Math.floor((color / 255) * (symbols.length - 1));
-            return symbols[index];
-        }
-
-        function copyToClipboard() {
-            var outputText = document.getElementById('output');
-            var range = document.createRange();
-            range.selectNode(outputText);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            document.execCommand('copy');
-            window.getSelection().removeAllRanges();
-            alert('Текст скопирован!');
-        }
-
-        document.getElementById('minecraftNickname').addEventListener('input', function() {
-            var inputText = this.value.toLowerCase();
-            var designText = document.getElementById('designText');
-
-            if (inputText === 'setvar') {
-                designText.innerHTML += ' ❤️';
-            } else {
-                designText.innerHTML = 'design by zbt + scripts by MrIrbis';
-            }
-        });
-    </script>
+    <!-- Добавлен id для ссылки на стиль -->
+    <script src="./assets/js/autoAddStyle.js"></script>
+    <!-- Подключение основного JS файла -->
+    <script src="./assets/js/main.js"></script>
+    <!-- Подключение файла для управления стилями -->
+    <script src="./assets/js/styleSwitcher.js"></script>
+    
 </body>
 </html>
