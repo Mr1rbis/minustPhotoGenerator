@@ -5,4 +5,5 @@
 Дизайн: zbt
 Скрипты: Mr1rbis
 ```
-![изображение](https://github.com/ZeusBlockTuber/minustPhotoGenerator/assets/68651897/699cb0d2-ad8e-4f28-aebc-c7fe222c424a)
+![изображение](https://github.com/Mr1rbis/minustPhotoGenerator/assets/68651897/b3240303-f480-4104-b207-284cb0293355)
+
