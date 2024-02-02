@@ -71,7 +71,7 @@ document.getElementById('minecraftNickname').addEventListener('input', function(
     if (inputText === 'setvar') {
         designText.innerHTML += ' ❤️';
     } else {
-        designText.innerHTML = 'design by furrc + scripts by MrIrbis';
+        designText.innerHTML = 'design by ***** + scripts by MrIrbis';
     }
 });
 // СТИЛИ
@@ -128,3 +128,8 @@ window.onload = function () {
         changeStyle();
     }
 };
+$("#minecraftNickname").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $(".create-passport").click();
+    }
+});

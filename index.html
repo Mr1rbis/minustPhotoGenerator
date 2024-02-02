@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png+xml" href="./assets/images/logo.png" />
-    <link rel="stylesheet" href="./assets/css/adapt.css">
+    <link rel="stylesheet" href="assets/css/default/style.css">
+    <link rel="stylesheet" href="assets/css/default/adapt.css">
     <link id="styleLink" rel="stylesheet" href="./assets/css/auto/zbt.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
 
     <title>Фото на паспорт | МинЮст СП</title>
 </head>
-<body class="transform-slide">
-        <select  id="styleSelector" onchange="changeStyle()">
-        <!-- <option value="zbt">Стандартный тёмный</option>
-        <option value="zbt_white">Стандартный светлый</option> -->
-        <!-- <option value="furrc">Дизайн Furrc</option> -->
-        </select>
+<body class="bodya">
     <div class="content">
-
         <div class="left-block">
             <label class="text-label" for="minecraftNickname">Введите ник в Minecraft:</label>
             <input type="text" id="minecraftNickname" placeholder="Введите ник">
-            <button onclick="generateBookCover()"><img src="./assets/images/icons/create-passport.svg" alt="">Создать фото на паспорт</button>
+            <button class="create-passport" onclick="generateBookCover()"><img src="./assets/images/icons/create-passport.svg" alt="">Создать фото на паспорт</button>
             <button class="copy-button" onclick="copyToClipboard()"><img src="./assets/images/icons/clipboard.svg" alt="">Скопировать</button>
         </div>
         <div id="output"></div>
     </div>
+    <div class="theme">
+        <select  id="styleSelector" onchange="changeStyle()">
+           <option value="zbt">Стандартный тёмный</option>
+           <option value="zbt_white">Стандартный светлый</option>
+           
+            </select>
+    </div>
     <footer>
-        <p id="designText">design by furrc + scripts by MrIrbis</p>
+        <p id="designText">design by ***** + scripts by MrIrbis</p>
     </footer>
     <!-- Добавлен id для ссылки на стиль -->
     <script src="./assets/js/autoAddStyle.js"></script>
